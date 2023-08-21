@@ -1,8 +1,8 @@
 ﻿namespace CabInvoiceGenerator
 {
-    class Ride
+    public class Ride
     {
-        double Distance { get; set; }
-        double Time { get; set; }
+        public double Distance { get; set; }
+        public double Time { get; set; }
     }
 }

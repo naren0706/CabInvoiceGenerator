@@ -12,5 +12,16 @@ namespace CabInvoiceGeneratorTest
             int expected = 105;
             Assert.AreEqual(actual, expected);
         }
+        [Test]
+        public void GivenRides_WhenChecked_ReturnTotalFare()
+        {
+            Ride[] rides =
+            {
+                new Ride(){Distance=10,Time=5}
+            };
+            double actual = invoiceService.CalculateFare(rides);
+            double expexted = 105;
+            Assert.AreEqual(actual, expexted);
+        }
     }
 }

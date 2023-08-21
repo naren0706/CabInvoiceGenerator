@@ -11,6 +11,21 @@ namespace CabInvoiceGenerator
         private const int MIN_FARE = 5;
         private const int COST_PER_MIN = 1;
         private const double COST_PER_KM=10;
+        private int totalNumberOfRides = 0;
+        private double totalFare = 0;
+        private double averageFare = 0;
+        public int TotalNumOfRides()
+        {
+            return totalNumberOfRides;
+        }
+        public double TotalFare()
+        {
+            return totalFare;
+        }
+        public double AverageFare()
+        {
+            return averageFare; 
+        }
 
         public double CalculateFare(double distance,double time)
         {
@@ -23,14 +38,13 @@ namespace CabInvoiceGenerator
         }
         public double CalculateFare(Ride[] rides)
         {
-            double totalAmount = 0;
             foreach (var ride in rides)
             {
-                totalAmount += ride.Distance * COST_PER_KM + ride.Time * COST_PER_MIN;
+                totalFare += (ride.Distance * COST_PER_KM + ride.Time * COST_PER_MIN);
             }
-            int numOfRides = rides.Length;
-            double aggregateAmount = totalAmount / numOfRides;
-            return aggregateAmount;
+            totalNumberOfRides = rides.Length;
+            averageFare = totalFare / totalNumberOfRides;
+            return averageFare;
 
         }
     }
